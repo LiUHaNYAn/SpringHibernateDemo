@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by 20150831 on 2015/9/15.
  */
-@Component
+@Repository
 public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
