@@ -1,6 +1,8 @@
 package com.controller;
 
 import com.domain.UserInfo;
+import com.services.interfaces.UserInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class UserController {
+    @Autowired
+    private UserInfoService service;
     @RequestMapping("/user/info")
     @ResponseBody
     public UserInfo UserInfo(){
@@ -21,6 +25,10 @@ public class UserController {
     }
     @RequestMapping("/user/list")
     public ModelAndView UserList(){
+        UserInfo userInfo=new UserInfo();
+        userInfo.setUserName("James");
+        userInfo.setPassword("灌灌灌灌");
+        service.Register(userInfo);
         return  new ModelAndView("/user/list");
     }
 
