@@ -8,7 +8,7 @@ import  javax.persistence.Id;
  * Created by 20150831 on 2015/9/15.
  */
 @Entity
-public class UserInfo {
+public class UserInfo extends IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int Id;
