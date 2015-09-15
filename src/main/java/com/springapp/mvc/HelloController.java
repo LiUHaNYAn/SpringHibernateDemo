@@ -18,8 +18,8 @@ public class HelloController {
 	public String printWelcome(ModelMap model) {
 	Session session= factory.openSession();
 		UserInfo userInfo=new UserInfo();
-		userInfo.setUserName("fsdfsdf");
-		userInfo.setPassword("200000");
+		userInfo.setUserName("防御条约try");
+		userInfo.setPassword("发士大夫");
 		session.save(userInfo);
 		model.addAttribute("message", "Hello world!");
 		return "hello";
