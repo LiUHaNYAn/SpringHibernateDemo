@@ -12,12 +12,14 @@
 </head>
 <body>
 <ul>
-<%
-for (int i=0;i<10;i++){
-  %>
-<li ><%=i%></li>
-<%}
+    <%
+        for (int i = 0; i < 10; i++) {
+    %>
+    <li><%=i%>
+    </li>
+    <%
+        }
 
-%></ul>
+    %></ul>
 </body>
 </html>

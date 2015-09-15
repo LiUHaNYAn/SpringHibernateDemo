@@ -13,15 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
     @RequestMapping("/user/info")
     @ResponseBody
-    public UserInfo UserInfo(){
-        UserInfo userInfo=new UserInfo();
+    public UserInfo UserInfo() {
+        UserInfo userInfo = new UserInfo();
         userInfo.setUserName("防御条约try");
         userInfo.setPassword("发士大夫");
-        return  userInfo;
+        return userInfo;
     }
+
     @RequestMapping("/user/list")
-    public ModelAndView UserList(){
-        return  new ModelAndView("/user/list");
+    public ModelAndView UserList() {
+        return new ModelAndView("/user/list");
     }
 
 }

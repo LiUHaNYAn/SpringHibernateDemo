@@ -3,7 +3,8 @@ package com.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import  javax.persistence.Id;
+import javax.persistence.Id;
+
 /**
  * Created by 20150831 on 2015/9/15.
  */
@@ -11,9 +12,9 @@ import  javax.persistence.Id;
 public class UserInfo extends IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  int Id;
+    private int Id;
     private String UserName;
-    private  String Password;
+    private String Password;
 
     public int getId() {
         return Id;
