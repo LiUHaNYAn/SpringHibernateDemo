@@ -9,6 +9,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class HelloController {
@@ -21,6 +23,7 @@ public class HelloController {
 		userInfo.setUserName("防御条约try");
 		userInfo.setPassword("发士大夫");
 		session.save(userInfo);
+		List<UserInfo> data=session.createQuery("from UserInfo").list();
 		model.addAttribute("message", "Hello world!");
 		return "hello";
 	}
