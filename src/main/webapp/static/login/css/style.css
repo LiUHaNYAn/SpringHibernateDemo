@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-style: normal;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: 100%;
+}
+
+body {
+    background: #0683b1;
+    color: #333;
+    font: 14px Tahoma, Geneva, sans-serif;
+}
+
+.admin_til {
+    color: #fff;
+    font: 40px "Microsoft Yahei";
+    margin: 0 auto;
+    margin-top: 200px;
+    text-align: center;
+    width: 500px;
+}
+
+.logon_box {
+    background: #fff;
+    border-bottom: 3px solid #8cba51;
+    border-radius: 6px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 30px 80px;
+    height: 300px;
+    width: 340px;
+}
+
+.admin {
+    margin-left: 50px;
+}
+
+.input_style {
+    background: url(../images/icon.gif) no-repeat 10px 10px;
+    border: 1px solid #ddd;
+    height: 34px;
+    line-height: 34px;
+    padding: 3px 3px 3px 40px;
+    width: 300px;
+}
+
+.input_pwd {
+    background: url(../images/icon.gif) no-repeat 10px -58px;
+}
+
+.input_check {
+    background: none;
+    float: left;
+    width: 100px;
+    padding-left: 10px;
+}
+
+.form_items_one {
+    margin-bottom: 20px;
+}
+
+.form_items {
+    margin-top: 15px;
+}
+
+.form_btn {
+    background: #0683b1;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 150px;
+}
+
+.select_box {
+    width: 150px;
+    position: relative;
+    font-size: 12px;
+}
+
+.submit_box {
+    width: 150px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+}
+
+ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0
+}
+
+.select_box input {
+    cursor: pointer;
+    display: block;
+    line-height: 34px;
+    width: 100%;
+    height: 34px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    padding-right: 20px;
+    padding-left: 10px;
+    background: url(../images/select_drop.gif) no-repeat 90% center;
+}
+
+.select_box ul {
+    width: 180px;
+    position: absolute;
+    left: 0;
+    top: 34px;
+    border: 1px solid #ddd;
+    background: #fff;
+    overflow: hidden;
+    display: none;
+    z-index: 99999;
+}
+
+.select_box ul li {
+    display: block;
+    height: 34px;
+    overflow: hidden;
+    line-height: 34px;
+    padding-left: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.hover {
+    background: #ddd;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+
+<body>
+<h1 class="admin_til">后台管理系统</h1>
+
+<div class="logon_box">
+    <form action="" method="post">
+        <div class="form_items_one">
+                <span>
+                <input type="radio" id="service" name="login" checked="checked"/>
+                <label for="service">客服</label>
+                </span>
+                <span class="admin">
+                <input type="radio" id="admin" name="login"/>
+                <label for="admin">管理员</label>
+                </span>
+        </div>
+        <div class="form_items">
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".select_box input").click(function () {
+                        var thisinput = $(this);
+                        var thisul = $(this).parent().find("ul");
+                        if (thisul.css("display") == "none") {
+                            if (thisul.height() > 200) {
+                                thisul.css({height: "200" + "px", "overflow-y": "scroll"})
+                            }
+                            ;
+                            thisul.fadeIn("100");
+                            thisul.hover(function () {
+                            }, function () {
+                                thisul.fadeOut("100");
+                            })
+                            thisul.find("li").click(function () {
+                                thisinput.val($(this).text());
+                                thisul.fadeOut("100");
+                            }).hover(function () {
+                                $(this).addClass("hover");
+                            }, function () {
+                                $(this).removeClass("hover");
+                            });
+                        }
+                        else {
+                            thisul.fadeOut("fast");
+                        }
+                    })
+                    $("#submit").click(function () {
+                        var endinfo = "";
+                        $(".select_box input:text").each(function (i) {
+                            endinfo = endinfo + (i + 1) + ":" + $(this).val() + ";\n";
+                        })
+                        alert(endinfo);
+                    })
+                });
+            </script>
+            <div class="select_box"><input id="myselect" type="text" value="请选择..." readonly="readonly">
+                <ul class="select_ul">
+                    <li>选项一</li>
+                    <li>选项二</li>
+                    <li>选项三</li>
+                    <li>选项四</li>
+                    <li>选项五</li>
+                </ul>
+            </div>
+        </div>
+        <div class="form_items">
+            <input class="input_style" type="text" value="用户" onFocus="this.value=''"
+                   onBlur="if(!value){value=defaultValue;}"/>
+        </div>
+
+        <div class="form_items">
+            <input class="input_style input_pwd" type="text" value="密码" onFocus="this.value=''"
+                   onBlur="if(!value){value=defaultValue;}"/>
+        </div>
+        <div class="form_items">
+            <input class="input_style input_check" type="text" value="验证码" onFocus="this.value=''"
+                   onBlur="if(!value){value=defaultValue;}"/>
+                <span>
+                	<img src="images/icon.gif" height="40" width="100"/>
+                </span>
+        </div>
+        <div class="form_items">
+            <input class="form_btn" type="submit" value="登 录"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
