@@ -1,0 +1,140 @@
+﻿.msg_left {
+    width: 30%;
+    float: left;
+    border: solid 1px #d3d3d3;
+    padding: 5px;
+}
+
+.msg_left .first {
+    background-color: #ececec;
+    width: 90%;
+    height: 200px;
+    line-height: 200px;
+    margin: 5px auto;
+    text-align: center;
+    font-size: 16px;
+    color: #c0c0c0;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.msg_left .title {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    background-color: #818181;
+    text-align: left;
+}
+
+.msg_right {
+    width: 66%;
+    float: left;
+    z-index: -10;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.explay {
+    color: #a3a3a3;
+}
+
+.main {
+    width: 1000px;
+}
+
+.main .edit {
+    cursor: pointer;
+}
+
+.addnews {
+    display: block;
+    font-size: 0;
+    text-decoration: none;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 3px dotted #b8b8b8;
+    height: 72px;
+    text-align: center;
+    line-height: 72px;
+}
+
+.icon24_common {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    overflow: hidden;
+    background: url("../../Images/base_z.png") 0 -3103px no-repeat;
+    margin-top: 20px;
+}
+
+.line {
+    border-top: solid 1px #d3d3d3;
+    height: 1px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.other {
+    height: 100px;
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+}
+
+.other .o_title {
+    float: left;
+}
+
+.other .o_img {
+    float: right;
+}
+
+.poit {
+    cursor: pointer;
+}
+
+.menuList {
+    font-size: 16px;
+    line-height: 30px;
+    width: 90%;
+    margin-left: 10px;
+}
+
+.menuList {
+    height: 30px;
+}
+
+.w420 {
+    width: 350px;
+}
+
+.opera {
+    margin-top: -10px;
+    background: rgba(229, 229, 229, 0.75) !important;
+    height: 120px;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    text-align: center;
+}
+
+#eidtFirst {
+    background: rgba(229, 229, 229, 0.75) !important;
+    height: 200px;
+    width: 380px;
+    text-align: center;
+}
+
+.edite {
+    margin-top: 40px;
+    display: inline-block;
+}
+
+.deld {
+    margin-top: 40px;
+    width: 48px;
+    height: 48px;
+    background: url("../../Images/ux_1399623492_8104007.png") no-repeat;
+    display: inline-block;
+}
