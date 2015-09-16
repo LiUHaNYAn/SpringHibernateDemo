@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
+
 /**
  * Created by 20150831 on 2015/9/15.
  */
@@ -26,8 +28,9 @@ public class UserController {
     @RequestMapping("/user/list")
     public ModelAndView UserList(){
         UserInfo userInfo=new UserInfo();
-        userInfo.setUserName("James");
+        userInfo.setUserName("James11");
         userInfo.setPassword("灌灌灌灌");
+        userInfo.setCreatetime(new Date());
         service.Register(userInfo);
         return  new ModelAndView("/user/list");
     }
