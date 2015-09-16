@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by 20150831 on 2015/9/16.
  */
 @Entity
-public class Admin {
+public class Admin extends  IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int adminid;
@@ -18,10 +18,17 @@ public class Admin {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "createtime",nullable = false)
     private Date createTime;
-    @ManyToOne(targetEntity = AdminGroup.class,fetch = FetchType.LAZY)
-    @JoinColumn(name = "groupid",referencedColumnName = "groupid")
-    private AdminGroup adminGroup;
-    @Column(name = "telphone",nullable = false,length = 11,columnDefinition = "varchar(11)",unique = true)
+
+    public int getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(int groupid) {
+        this.groupid = groupid;
+    }
+    @Column(name = "groupid")
+    private  int groupid;
+   @Column(name = "telphone",nullable = false,length = 11,columnDefinition = "varchar(11)",unique = true)
     private  String telphone;
     @Column(name = "jobnumber",nullable = false,length = 10,columnDefinition = "varchar(10)",unique = true)
     private String jobnumber;
@@ -60,13 +67,7 @@ public class Admin {
         this.createTime = createTime;
     }
 
-    public AdminGroup getAdminGroup() {
-        return adminGroup;
-    }
 
-    public void setAdminGroup(AdminGroup adminGroup) {
-        this.adminGroup = adminGroup;
-    }
 
     public String getTelphone() {
         return telphone;
