@@ -9,6 +9,14 @@
 <html>
 <head>
     <title></title>
+  <script src="/static/scripts/jquery.min.js">
+
+  </script>
+  <script>
+    $(function () {
+      alert("demo")
+    })
+  </script>
 </head>
 <body>
 this is home page
