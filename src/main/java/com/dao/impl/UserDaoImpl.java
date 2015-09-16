@@ -14,9 +14,10 @@ import org.springframework.stereotype.Repository;
 public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
+
     @Override
     public void AddEntity(UserInfo model) {
-sessionFactory.getCurrentSession().save(model);
+        sessionFactory.getCurrentSession().save(model);
     }
 
     @Override

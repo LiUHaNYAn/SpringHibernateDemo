@@ -17,22 +17,24 @@ import java.util.Date;
 public class UserController {
     @Autowired
     private UserInfoService service;
+
     @RequestMapping("/user/info")
     @ResponseBody
-    public UserInfo UserInfo(){
-        UserInfo userInfo=new UserInfo();
+    public UserInfo UserInfo() {
+        UserInfo userInfo = new UserInfo();
         userInfo.setUserName("防御条约try");
         userInfo.setPassword("发士大夫");
-        return  userInfo;
+        return userInfo;
     }
+
     @RequestMapping("/user/list")
-    public ModelAndView UserList(){
-        UserInfo userInfo=new UserInfo();
+    public ModelAndView UserList() {
+        UserInfo userInfo = new UserInfo();
         userInfo.setUserName("James11");
         userInfo.setPassword("灌灌灌灌");
         userInfo.setCreatetime(new Date());
         service.Register(userInfo);
-        return  new ModelAndView("/user/list");
+        return new ModelAndView("/user/list");
     }
 
 }

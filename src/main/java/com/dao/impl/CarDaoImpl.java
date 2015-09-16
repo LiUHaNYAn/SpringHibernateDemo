@@ -12,7 +12,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CarDaoImpl implements CarDao {
     @Autowired
-   private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
+
     @Override
     public void AddEntity(CarInfo model) {
         sessionFactory.getCurrentSession().save(model);

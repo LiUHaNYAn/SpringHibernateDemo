@@ -15,14 +15,15 @@ import java.util.List;
 public class AdminGroupDaoImpl implements AdminGroupDao {
     @Autowired
     private SessionFactory factory;
+
     @Override
     public List<AdminGroup> GetList(String rolename) {
-         return factory.getCurrentSession().createQuery("from AdminGroup as ag where ag.rolename=:rolename").setParameter("rolename",rolename).list();
+        return factory.getCurrentSession().createQuery("from AdminGroup as ag where ag.rolename=:rolename").setParameter("rolename", rolename).list();
     }
 
     @Override
     public boolean IsExists(String rolename) {
-        return factory.getCurrentSession().createQuery("from AdminGroup as ag where ag.rolename=:rolename").setParameter("rolename",rolename).list().size()>0;
+        return factory.getCurrentSession().createQuery("from AdminGroup as ag where ag.rolename=:rolename").setParameter("rolename", rolename).list().size() > 0;
     }
 
     @Override

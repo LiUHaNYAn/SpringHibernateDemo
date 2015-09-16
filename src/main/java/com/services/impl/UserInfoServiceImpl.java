@@ -20,10 +20,11 @@ public class UserInfoServiceImpl implements UserInfoService {
     private UserDao userDao;
     @Autowired
     private CarDao carDao;
+
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void Register(UserInfo model) {
-        CarInfo carInfo=new CarInfo();
+        CarInfo carInfo = new CarInfo();
         carInfo.setCarNo("fffff");
         carDao.AddEntity(carInfo);
         userDao.AddEntity(model);

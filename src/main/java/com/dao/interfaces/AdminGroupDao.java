@@ -10,5 +10,6 @@ import java.util.List;
  */
 public interface AdminGroupDao extends BaseDao<AdminGroup> {
     List<AdminGroup> GetList(String rolename);
+
     boolean IsExists(String rolename);
 }

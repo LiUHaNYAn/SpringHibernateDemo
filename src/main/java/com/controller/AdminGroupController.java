@@ -20,17 +20,20 @@ import java.util.Date;
 public class AdminGroupController {
     @Autowired
     private AdminGroupService service;
+
     @RequestMapping("/admingroup")
-    public ModelAndView Index(){
+    public ModelAndView Index() {
         return new ModelAndView("admingroup/index");
     }
+
     @RequestMapping("/admingroup/add")
     @ResponseBody
-    public ServiceResult AdminGroupAdd(AdminGroupAddDto model){
-        AdminGroup adminGroup=new AdminGroup();
+    public ServiceResult AdminGroupAdd(AdminGroupAddDto model) {
+        AdminGroup adminGroup = new AdminGroup();
         adminGroup.setCreatetime(new Date());
         adminGroup.setDescription(model.getDescription());
         adminGroup.setRolename(model.getRolename());
-       return service.AddAdminGroup(adminGroup);
+        adminGroup.setIsdelete(0);
+        return service.AddAdminGroup(adminGroup);
     }
 }

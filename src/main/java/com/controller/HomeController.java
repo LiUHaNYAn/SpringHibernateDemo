@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class HomeController {
     @RequestMapping("/")
-    public ModelAndView Index(){
+    public ModelAndView Index() {
         return new ModelAndView("/home/index");
     }
 }

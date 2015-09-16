@@ -20,22 +20,23 @@
     </bean>
     <bean id="datasource1" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://115.28.164.123:3306/test?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+        <property name="url"
+                  value="jdbc:mysql://115.28.164.123:3306/test?useUnicode=true&amp;characterEncoding=UTF-8"></property>
         <property name="username" value="root"></property>
         <property name="password" value="123456"></property>
     </bean>
 
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="datasource1" />
-      <property name="annotatedClasses">
-          <list>
-              <value>com.domain.UserInfo</value>
-              <value>com.domain.CarInfo</value>
-              <value>com.domain.AdminGroup</value>
-              <value>com.domain.Admin</value>
-          </list>
-      </property>
+        <property name="dataSource" ref="datasource1"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.domain.UserInfo</value>
+                <value>com.domain.CarInfo</value>
+                <value>com.domain.AdminGroup</value>
+                <value>com.domain.Admin</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
@@ -46,7 +47,7 @@
                 <prop key="c3p0.timeout">10000</prop>
                 <prop key="format_sql">true</prop>
                 <prop key="use_sql_comments">true</prop>
-                  <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
+                <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
             </props>
         </property>
     </bean>
@@ -65,15 +66,15 @@
             class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <ref bean="stringConverter" />
-                <ref bean="jsonConverter" />
+                <ref bean="stringConverter"/>
+                <ref bean="jsonConverter"/>
             </list>
         </property>
     </bean>
 
     <bean id="transactionManager" name="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <!-- 使用annotation声明 -->
 

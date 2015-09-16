@@ -7,16 +7,16 @@ import java.util.Date;
  * Created by 20150831 on 2015/9/16.
  */
 @Entity
-public class Admin extends  IEntity {
+public class Admin extends IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  int adminid;
-    @Column(name = "adminname",nullable = false,length = 50,columnDefinition = "varchar(50)",unique = true)
+    private int adminid;
+    @Column(name = "adminname", nullable = false, length = 50, columnDefinition = "varchar(50)", unique = true)
     private String adminName;
-    @Column(name = "password",nullable = false,length = 200,columnDefinition = "varchar(200)")
-    private  String password;
+    @Column(name = "password", nullable = false, length = 200, columnDefinition = "varchar(200)")
+    private String password;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "createtime",nullable = false)
+    @Column(name = "createtime", nullable = false)
     private Date createTime;
 
     public int getGroupid() {
@@ -26,14 +26,15 @@ public class Admin extends  IEntity {
     public void setGroupid(int groupid) {
         this.groupid = groupid;
     }
+
     @Column(name = "groupid")
-    private  int groupid;
-   @Column(name = "telphone",nullable = false,length = 11,columnDefinition = "varchar(11)",unique = true)
-    private  String telphone;
-    @Column(name = "jobnumber",nullable = false,length = 10,columnDefinition = "varchar(10)",unique = true)
+    private int groupid;
+    @Column(name = "telphone", nullable = false, length = 11, columnDefinition = "varchar(11)", unique = true)
+    private String telphone;
+    @Column(name = "jobnumber", nullable = false, length = 10, columnDefinition = "varchar(10)", unique = true)
     private String jobnumber;
-    @Column(name = "isdelete",nullable = false,columnDefinition = "default 0")
-    private  int isdelete;
+    @Column(name = "isdelete", nullable = false, columnDefinition = "default 0")
+    private int isdelete;
 
     public int getAdminid() {
         return adminid;
@@ -66,7 +67,6 @@ public class Admin extends  IEntity {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-
 
 
     public String getTelphone() {

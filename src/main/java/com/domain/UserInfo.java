@@ -11,12 +11,12 @@ public class UserInfo extends IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
-    @Column(nullable = false,unique = true,length = 20,columnDefinition = "varchar(20)",name = "username")
+    @Column(nullable = false, unique = true, length = 20, columnDefinition = "varchar(20)", name = "username")
     private String UserName;
-    @Column(nullable = false,unique = false,length = 200,columnDefinition = "varchar(200)",name = "password")
+    @Column(nullable = false, unique = false, length = 200, columnDefinition = "varchar(200)", name = "password")
     private String Password;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false,unique = false,name = "createtime")
+    @Column(nullable = false, unique = false, name = "createtime")
     private Date createtime;
 
     public int getId() {
