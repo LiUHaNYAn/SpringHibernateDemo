@@ -33,7 +33,7 @@ public class Admin extends IEntity {
     private String telphone;
     @Column(name = "jobnumber", nullable = false, length = 10, columnDefinition = "varchar(10)", unique = true)
     private String jobnumber;
-    @Column(name = "isdelete", nullable = false, columnDefinition = "default 0")
+    @Column(name = "isdelete", nullable = false, columnDefinition = "default 0",updatable = true)
     private int isdelete;
 
     public int getAdminid() {
