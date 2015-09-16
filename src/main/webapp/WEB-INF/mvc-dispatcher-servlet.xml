@@ -3,22 +3,43 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx4.0.xsd
-        http://www.springframework.org/schema/aop
-        http://www.springframework.org/scheme/aop/spring-aop-3.0.xsd">
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="com.controller"/>
+    <context:component-scan base-package="com.dao.impl"/>
+    <context:component-scan base-package="com.services.impl"/>
     <mvc:annotation-driven></mvc:annotation-driven>
-    <tx:annotation-driven/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/views/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+    <bean id="datasource1" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://115.28.164.123:3306/test?useUnicode=true&amp;characterEncoding=UTF-8"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="datasource1" />
+      <property name="annotatedClasses">
+          <list>
+              <value>com.domain.UserInfo</value>
+          </list>
+      </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                  <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
+            </props>
+        </property>
     </bean>
     <bean id="stringConverter"
           class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -35,48 +56,16 @@
             class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <ref bean="stringConverter"/>
-                <ref bean="jsonConverter"/>
+                <ref bean="stringConverter" />
+                <ref bean="jsonConverter" />
             </list>
         </property>
     </bean>
-    <bean id="datasource1" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url"
-                  value="jdbc:mysql://115.28.164.123:3306/test?useUnicode=true&amp;characterEncoding=UTF-8"></property>
-        <property name="username" value="root"></property>
-        <property name="password" value="123456"></property>
-    </bean>
 
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="datasource1"/>
-        <property name="packagesToScan">
-            <list>
-                <value>com.domain</value>
-            </list>
-        </property>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.current_session_context_class">thread</prop>
-            </props>
-        </property>
-    </bean>
-    <!--<bean id="tranactionManager_jdbc" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-        <!--<property name="dataSource" ref="datasource1"></property>-->
+    <!--<bean id="txManager"-->
+          <!--class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
+        <!--<property name="sessionFactory" ref="sessionFactory" />-->
     <!--</bean>-->
-    <!--<bean id="transactionManager_hibernate" class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
-        <!--<property name="sessionFactory" ref="sessionFactory"></property>-->
-    <!--</bean>-->
+    <!-- 使用annotation声明 -->
 
-    <!--<tx:advice id="interceptor" transaction-manager="transactionManager">-->
-        <!--<tx:attributes>-->
-            <!--<tx:method name="save*" read-only="true" propagation="REQUIRED"/>-->
-            <!--<tx:method name="*" read-only="true" propagation="REQUIRED"/>-->
-        <!--</tx:attributes>-->
-    <!--</tx:advice>-->
-    <!--<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"></bean>-->
 </beans>

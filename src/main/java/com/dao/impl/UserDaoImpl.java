@@ -4,19 +4,19 @@ import com.dao.interfaces.UserDao;
 import com.domain.UserInfo;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by 20150831 on 2015/9/15.
  */
+@Repository
 public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
-
     @Override
-    @Transactional
     public void AddEntity(UserInfo model) {
-        sessionFactory.getCurrentSession().save(model);
+sessionFactory.getCurrentSession().save(model);
     }
 
     @Override
