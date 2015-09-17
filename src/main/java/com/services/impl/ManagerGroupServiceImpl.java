@@ -38,8 +38,7 @@ public class ManagerGroupServiceImpl implements ManagerGroupService {
                 dao.AddEntity(group);
                 result.setMsg(ResultCode.Success.getName());
                 result.setResultcode(ResultCode.Success);
-                File dir = new File("/an/dir/");
-                File[] dirs = dir.listFiles((File f) -> f.isDirectory());
+
             }catch (Exception ex){
                 result.setMsg(ex.getMessage());
                 result.setResultcode(ResultCode.Fail);
