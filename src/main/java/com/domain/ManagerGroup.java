@@ -6,6 +6,7 @@ import java.util.Date;
 /**
  * Created by 20150831 on 2015/9/17.
  */
+@Entity
 public class ManagerGroup extends  IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -4,15 +4,15 @@ package com.common;
  * Created by 20150831 on 2015/9/16.
  */
 public class ServiceResult {
-    private int resultcode;
+    private ResultCode resultcode;
     private String msg;
     private Object data;
 
-    public int getResultcode() {
+    public ResultCode getResultcode() {
         return resultcode;
     }
 
-    public void setResultcode(int resultcode) {
+    public void setResultcode(ResultCode resultcode) {
         this.resultcode = resultcode;
     }
 

@@ -1,6 +1,8 @@
 package com.controller;
 
 import com.domain.UserInfo;
+import com.dto.ManagerGroupAddDto;
+import com.services.interfaces.ManagerGroupService;
 import com.services.interfaces.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +19,8 @@ import java.util.Date;
 public class UserController {
     @Autowired
     private UserInfoService service;
-
+    @Autowired
+    private ManagerGroupService managerGroupService;
     @RequestMapping("/user/info")
     @ResponseBody
     public UserInfo UserInfo() {
@@ -29,11 +32,10 @@ public class UserController {
 
     @RequestMapping("/user/list")
     public ModelAndView UserList() {
-         UserInfo userInfo = new UserInfo();
-        userInfo.setUserName("James1d");
-        userInfo.setPassword("灌灌灌灌");
-        userInfo.setCreatetime(new Date());
-        service.Register(userInfo);
+        ManagerGroupAddDto dto=new ManagerGroupAddDto();
+        dto.setDescription("demo");
+        dto.setRolename("demo");
+       managerGroupService.AddManagerGroup(dto);
         return new ModelAndView("/user/list");
     }
 
