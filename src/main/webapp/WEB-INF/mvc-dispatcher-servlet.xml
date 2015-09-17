@@ -37,7 +37,8 @@
             <list>
                 <value>com.domain.UserInfo</value>
                 <value>com.domain.CarInfo</value>
-                <value>com.domain.Admin</value>
+                <value>com.domain.Manager</value>
+                <value>com.domain.ManagerGroup</value>
             </list>
         </property>
         <property name="hibernateProperties">
