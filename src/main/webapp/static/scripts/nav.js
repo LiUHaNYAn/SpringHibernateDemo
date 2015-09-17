@@ -345,7 +345,7 @@
                 {
                     "menuid": "61",
                     "menuname": "管理员管理",
-                    "url": "/Manager/ManagerList.aspx",
+                    "url": "/managergroup/index",
                     "icon": "icon-nav"
                 }, {
                     "menuid": "62",
