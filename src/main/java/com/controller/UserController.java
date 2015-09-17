@@ -1,7 +1,7 @@
 package com.controller;
 
 import com.domain.UserInfo;
-import com.dto.ManagerGroupAddDto;
+import com.dto.ManagerGroupDto;
 import com.services.interfaces.ManagerGroupService;
 import com.services.interfaces.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +32,11 @@ public class UserController {
 
     @RequestMapping("/user/list")
     public ModelAndView UserList() {
-        ManagerGroupAddDto dto=new ManagerGroupAddDto();
-        dto.setDescription("demo");
-        dto.setRolename("demo");
-       managerGroupService.AddManagerGroup(dto);
+        ManagerGroupDto dto=new ManagerGroupDto();
+        dto.setDescription("deeeeeeemo");
+        dto.setRolename("demeeeeeeeo");
+        dto.setGroupid(1);
+       managerGroupService.EditManagerGroup(dto);
         return new ModelAndView("/user/list");
     }
 

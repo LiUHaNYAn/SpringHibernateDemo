@@ -8,4 +8,5 @@ import com.domain.ManagerGroup;
  */
 public interface ManagerGroupDao extends BaseDao<ManagerGroup> {
     public boolean IsExists(String roleName);
+    public  boolean IsExists(String roleName,int roleid);
 }

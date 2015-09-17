@@ -34,4 +34,13 @@ public class ManagerGroupDaoImpl extends DaoImplBase implements ManagerGroupDao 
     public boolean IsExists(String roleName) {
         return this.getSessionFactory().getCurrentSession().createQuery("from ManagerGroup as mg where mg.rolename=:rolename").setParameter("rolename",roleName).list().size()>0;
     }
+
+    @Override
+    public boolean IsExists(String roleName, int roleid) {
+        return this.getSessionFactory().getCurrentSession()
+                .createQuery("from ManagerGroup as mg where mg.rolename=:rolename and  mg.groupid=:groupid")
+                .setParameter("rolename",roleName)
+                .setParameter("groupid",roleid)
+                .list().size()>0;
+    }
 }
