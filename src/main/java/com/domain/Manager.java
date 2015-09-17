@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by 20150831 on 2015/9/16.
  */
 @Entity
-public class Admin extends IEntity {
+public class Manager extends IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int adminid;

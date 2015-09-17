@@ -29,7 +29,7 @@ public class UserController {
 
     @RequestMapping("/user/list")
     public ModelAndView UserList() {
-        UserInfo userInfo = new UserInfo();
+         UserInfo userInfo = new UserInfo();
         userInfo.setUserName("James1d");
         userInfo.setPassword("灌灌灌灌");
         userInfo.setCreatetime(new Date());
