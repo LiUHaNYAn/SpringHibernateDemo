@@ -36,7 +36,7 @@ public class UserController {
         dto.setDescription("deeeeeeemo");
         dto.setRolename("demeeeeeeeo");
         dto.setGroupid(1);
-       managerGroupService.EditManagerGroup(dto);
+       managerGroupService.AddManagerGroup(dto);
         return new ModelAndView("/user/list");
     }
 
