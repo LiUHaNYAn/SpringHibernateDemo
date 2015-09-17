@@ -24,9 +24,6 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void Register(UserInfo model) {
-        CarInfo carInfo = new CarInfo();
-        carInfo.setCarNo("fffff");
-        carDao.AddEntity(carInfo);
         userDao.AddEntity(model);
 
     }
