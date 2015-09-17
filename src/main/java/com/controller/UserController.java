@@ -18,7 +18,7 @@ import java.util.Date;
 @Controller
 public class UserController {
     @Autowired
-    private UserInfoService service;
+    private UserInfoService servieece;
     @Autowired
     private ManagerGroupService managerGroupService;
     @RequestMapping("/user/info")
