@@ -1,4 +1,4 @@
-package com.common;
+package com.aop;
 
 /**
  * Created by wanghy on 2015/9/16.
