@@ -8,11 +8,13 @@ import com.dto.ManagerGroupDto;
 import com.services.interfaces.ManagerGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by 20150831 on 2015/9/17.
@@ -66,5 +68,14 @@ public class ManagerGroupServiceImpl implements ManagerGroupService {
                 result.setResultcode(ResultCode.Fail);
             }
         return  result;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<ManagerGroup> GetList(String roleName) {
+        if(roleName==null){
+            roleName="";
+        }
+       return dao.GetList(roleName);
     }
 }

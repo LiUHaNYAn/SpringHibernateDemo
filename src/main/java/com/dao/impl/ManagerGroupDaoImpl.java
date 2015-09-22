@@ -43,4 +43,13 @@ public class ManagerGroupDaoImpl extends DaoImplBase implements ManagerGroupDao 
                 .setParameter("groupid",roleid)
                 .list().size()>0;
     }
+
+    @Override
+    public List<ManagerGroup> GetList(String roleName) {
+         return  this.getSessionFactory().getCurrentSession().createQuery("from ManagerGroup as  mg where :rolename1='' or mg.rolename like :rolename")
+                 .setParameter("rolename1",roleName)
+                 .setParameter("rolename",'%'+roleName+'%')
+                 .list();
+
+    }
 }

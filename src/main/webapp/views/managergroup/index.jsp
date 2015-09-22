@@ -129,13 +129,15 @@
       <h3 class="con_til">
         信息查询</h3>
       <div class="con_bg clearfix">
-                <span class="input_blo"><span class="input_text">时间</span> <span class="">
-                    <input class="adm_21" id="rolename" name="rolename" style="width: 70px;"
+                <span class="input_blo"><span class="input_text">角色名称</span> <span class="">
+                    <input class="adm_21" id="rolename" name="rolename" style="width: 100px;"
                           />
 
                 </span></span>
         <span class="input_blo"><a href="javascript:onSearch()" class="easyui-linkbutton"
                                                                                  iconcls="icon-search">查询</a></span>
+         <span class="input_blo"><a href="javascript:onAdd()" class="easyui-linkbutton"
+                                    iconcls="icon-search">添加</a></span>
       </div>
     </div>
   </div>
@@ -143,13 +145,7 @@
     <table>
       <tr>
         <td colspan="12">
-          <%--<%if (canEdit) { %>  <a href="javascript:onEdit()" class="easyui-linkbutton" iconcls="icon-edit">编辑</a><%} %>--%>
-          <%--<%if (canSend) { %>   <a href="javascript:onSentCar()" class="easyui-linkbutton" iconcls="icon-remove">派车</a><%} %>--%>
-          <%--<%if (canMapSend) { %>  <a href="javascript:onMapSentCar()" class="easyui-linkbutton" iconcls="icon-remove">地图派车</a> <%} %>--%>
-          <%--<%if (canCancelU) { %>  <a href="javascript:onCancelOrderU()" class="easyui-linkbutton" iconcls="icon-remove"> 取消订单(替客户取消)</a> <%} %>--%>
-          <%--<%if (canCance) { %>  <a href="javascript:onCancelOrder()" class="easyui-linkbutton" iconcls="icon-remove">取消订单(全额退款)</a> <%} %>--%>
-          <%--<%if (canEditCar) { %>  <a href="javascript:onReSentCar()" class="easyui-linkbutton" iconcls="icon-remove">更改派遣车辆</a> <%} %>--%>
-          <%--<%if (canMapEdit) { %>  <a href="javascript:onMapReSentCar()" class="easyui-linkbutton" iconcls="icon-remove">订单地图改派</a><%} %>--%>
+
         </td>
       </tr>
     </table>
@@ -159,35 +155,24 @@
 </form>
 <table id="gdgrid">
 </table>
-<div id="carwindow" title="派车(车辆信息仅供参考,请以实际情况为准)" style="width: 900px; height: 500px;">
-</div>
-<div id="editwindow" title="编辑订单信息" style="width: 600px; height: 400px;">
-</div>
-<div id="recarwindow" title="更改派遣车辆">
-</div>
-<div id="w" class="easyui-window" title="当前司机信息" data-options="modal:true,closed:true,collapsible:false,minimizable:false,maximizable:false,resizable:false"
-     style="width: 250px; height: 250px;">
-  <table id="tbhotline" style="width: 100%; border: 1px solid #95B8E7;">
-  </table>
+
+<div id="addwindow" title="添加角色"  style="width:600px; height:400px;">
 </div>
 <script type="text/javascript">
   //初始化
   $(function () {
     resizeTable();
-    resizeCarWindow();
-    resizeReSendCarWindow();
     bindGrid();
     bindWin();
 
-    //更新派车未接单状态订单数量
-
   });
   function resizeTable() {
-    var height = ($(window).height() - $("#querycontainer").height() - 10);
+    var height = ($(window).height() - $("#querycontainer").height()+200);
     var width = $(window).width();
     $("#gdgrid").css("height", height);
     $("#gdgrid").css("width", width);
   }
+
   function bindWin() {
     $("[id$=window]").window({
       modal: true,
@@ -209,18 +194,14 @@
       fitColumns: false,
       pageList: [15, 30, 45, 60],
       pageSize: 15,
-      title: "Role Manager",
+      title: "角色管理",
       toolbar: "#toolbar",
       showFooter: false,
-
-
-
-
       columns: [
         [  { field: 'ck', checkbox: true, width: 50 },
-          { field: 'rolename', title: 'mingcheng', width: 130},
-          { field: 'description', title: 'miaoshu', width: 300  }
-
+          { field: 'rolename', title: '角色名称', width: 130},
+          { field: 'description', title: '角色描述', width: 300  },
+          { field: 'createtime', title: '创建时间', width: 300 }
         ]
       ]
 
@@ -230,31 +211,14 @@
   function onEdit() {
     edit("gdgrid", "editwindow", "orderId", "/Order/OrderEdit.aspx?id=");
   }
-
-
-
-  function resizeCarWindow() {
-    var height = $(window).height();
-
-    var width = $(window).width();
-    $("#carwindow").css("width", width);
-    $("#carwindow").css("height", height);
+  function onAdd(){
+    $('#addwindow').window('open');
+    $('#addwindow').window('refresh', '/managergroup/groupadd');
   }
-  function resizeReSendCarWindow() {
-    var height = $(window).height() - 20;
-
-    var width = $(window).width() - 50;
-    $("#recarwindow").css("width", width);
-    $("#recarwindow").css("height", height);
-  }
-  /* 更改派车信息 */
-
-
 
   function onDelete() {
     ajaxdelete("rentCar", "id", "id", "gdgrid", onSearch);
   }
-  //关闭弹窗
   function onClose() {
     $('[id$=window]').window('close');
     onSearch();
