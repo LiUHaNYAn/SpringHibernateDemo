@@ -82,6 +82,7 @@
     </bean>
     <!-- 使用annotation声明 -->
     <bean id="securitydemo" class="com.aop.SecurityAspect"></bean>
+    <bean id="audiencedemo" class="com.aop.Audience"/>
     <aop:config>
         <aop:aspect ref="securitydemo">
             <aop:pointcut id="cut1" expression="execution(* com.services.interfaces.UserInfoService.Register(..))"></aop:pointcut>
@@ -90,6 +91,11 @@
             <!--<aop:after-throwing method="AfterThrowException" pointcut-ref="cut1"></aop:after-throwing>-->
             <aop:around method="AroundAdvice" pointcut-ref="cut1"/>
         </aop:aspect>
-
+        <aop:aspect ref="audiencedemo">
+            <aop:pointcut id="cut2" expression="execution(* com.services.interfaces.UserInfoService.Register(..))"></aop:pointcut>
+            <aop:before method="EnterRoom" pointcut-ref="cut2"/>
+            <aop:before method="TakeSeat" pointcut-ref="cut2"/>
+            <aop:after method="Leave" pointcut-ref="cut2"></aop:after>
+        </aop:aspect>
     </aop:config>
 </beans>
