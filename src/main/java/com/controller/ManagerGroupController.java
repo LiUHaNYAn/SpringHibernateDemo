@@ -4,6 +4,7 @@ import com.domain.ManagerGroup;
 import com.services.interfaces.ManagerGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,9 +22,9 @@ public class ManagerGroupController {
     public ModelAndView Index(){
         return  new ModelAndView("/managergroup/index");
     }
-    @RequestMapping("/managergroup/list")
+    @RequestMapping("/managergroup/list/{rolename}")
     @ResponseBody
-    public List<ManagerGroup> List(String rolename){
+    public List<ManagerGroup> List(@PathVariable("rolename") String rolename){
         List<ManagerGroup> data=service.GetList(rolename);
         return  data;
     }
